@@ -1,11 +1,11 @@
 {
-  "name": "@digitalpersona/enrollment.js",
+  "name": "@digitalpersona/enrollment",
   "globalObject": "dp.enrollment",
   "version": "0.0.1",
   "publishConfig": {
     "registry": "http://localhost:4873"
   },
-  "description": "JavaScript Client for DigitalPersona Enrollment API",
+  "description": "DigitalPersona Enrollment API",
   "author": "HID Global",
   "license": "MIT",
   "maintainers": [
