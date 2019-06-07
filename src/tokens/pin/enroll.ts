@@ -1,4 +1,5 @@
-import { User, IEnrollService, JSONWebToken, Credential, PIN } from '@digitalpersona/access-management';
+import { User, JSONWebToken, Credential } from '@digitalpersona/core';
+import { IEnrollService } from '@digitalpersona/services';
 import { Enroller } from '../../private';
 
 export class PinEnroll extends Enroller
@@ -20,12 +21,17 @@ export class PinEnroll extends Enroller
     public enroll(
         user: JSONWebToken,
         pin: string,
-        securityOfficer?: JSONWebToken): Promise<void>
+        securityOfficer?: JSONWebToken,
+    ): Promise<void>
     {
-        return super._enroll(user, new PIN(pin), securityOfficer);
+        return super._enroll(user, new Credential(Credential.PIN, pin), securityOfficer);
     }
 
-    public unenroll(user: JSONWebToken, securityOfficer?: JSONWebToken): Promise<void> {
-        return super._unenroll(user, new PIN(""), securityOfficer);
+    public unenroll(
+        user: JSONWebToken,
+        securityOfficer?: JSONWebToken,
+    ): Promise<void>
+    {
+        return super._unenroll(user, new Credential(Credential.PIN), securityOfficer);
     }
 }

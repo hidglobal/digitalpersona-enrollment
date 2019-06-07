@@ -1,4 +1,4 @@
-/**@internal */
+/** @internal */
 export enum CustomAction
 {
     PasswordRandomization = 4,

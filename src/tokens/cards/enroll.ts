@@ -1,60 +1,77 @@
-import { User, Ticket, Credential, CredentialId, SmartCard, ContactlessCard, ProximityCard, IEnrollService, JSONWebToken } from '@digitalpersona/access-management';
+import { User, JSONWebToken, Credential, CredentialId, Utf8 } from '@digitalpersona/core';
+import { IEnrollService } from '@digitalpersona/services';
+import { Enroller } from '../../private';
 
-class CardEnroll<Cred extends Credential>
+class CardEnroll extends Enroller
 {
+    protected readonly credId: CredentialId;
+
     constructor(
-        protected readonly credId: CredentialId,
-        protected readonly Cred: (new(data: string) => Cred),
-        private readonly enrollService: IEnrollService,
-        private readonly securityOfficer?: JSONWebToken,
+        credId: CredentialId,
+        enrollService: IEnrollService,
+        securityOfficer?: JSONWebToken,
     ){
-        if (!enrollService)
-            throw new Error("enrollService");
+        super(enrollService, securityOfficer);
+        this.credId = credId;
     }
 
     public canEnroll(user: User, securityOfficer?: JSONWebToken): Promise<void> {
-        return this.enrollService.IsEnrollmentAllowed(
-            new Ticket(securityOfficer || this.securityOfficer || ""),
-            user,
-            this.credId
-        )
+        return super._canEnroll(user, this.credId, securityOfficer);
     }
 
-    public enroll(user: JSONWebToken, cardData: string, securityOfficer?: JSONWebToken): Promise<void> {
-        return this.enrollService.EnrollUserCredentials(
-            new Ticket(securityOfficer || this.securityOfficer || user),
-            new Ticket(user),
-            new this.Cred(cardData)
-        );
+    public enroll(owner: JSONWebToken|User, cardData: string, securityOfficer?: JSONWebToken): Promise<void> {
+        return super._enroll(owner, new Credential(this.credId, cardData), securityOfficer);
     }
 
-    public unenroll(user: JSONWebToken, securityOfficer?: JSONWebToken): Promise<void> {
-        return this.enrollService.DeleteUserCredentials(
-            new Ticket(securityOfficer || this.securityOfficer || user),
-            new Ticket(user),
-            new this.Cred("")
-        );
+    public unenroll(owner: JSONWebToken|User, securityOfficer?: JSONWebToken): Promise<void> {
+        return super._unenroll(owner, new Credential(this.credId), securityOfficer);
     }
 }
 
-export class SmartCardEnroll extends CardEnroll<SmartCard>
+export interface SmartCardEnrollmentData {
+    version: string;
+    timeStamp: number;
+    keyHash: string;
+    nickname: string;
+}
+
+export class SmartCardEnroll extends CardEnroll
 {
     constructor(enrollService: IEnrollService, securityOfficer?: JSONWebToken) {
-        super(Credential.SmartCard, SmartCard, enrollService, securityOfficer)
+        super(Credential.SmartCard, enrollService, securityOfficer);
+    }
+
+    public getEnrolledCards(user: User): Promise<SmartCardEnrollmentData[]>
+    {
+        return this.enrollService
+            .GetEnrollmentData(user, Credential.SmartCard)
+            .then(data =>
+                (JSON.parse(Utf8.fromBase64Url(data)) as SmartCardEnrollmentData[]));
+    }
+
+    // Deletes a specific smart card defined by its pubilc key hash.
+    public unenroll(
+        owner: JSONWebToken|User,
+        securityOfficer?: JSONWebToken,
+        keyHash?: string,
+    )
+    : Promise<void>
+    {
+        return super._unenroll(owner,
+            new Credential(Credential.SmartCard, keyHash), securityOfficer);
     }
 }
 
-export class ContactlessCardEnroll extends CardEnroll<ContactlessCard>
+export class ContactlessCardEnroll extends CardEnroll
 {
     constructor(enrollService: IEnrollService, securityOfficer?: JSONWebToken) {
-        super(Credential.ContactlesCard, ContactlessCard, enrollService, securityOfficer);
+        super(Credential.ContactlessCard, enrollService, securityOfficer);
     }
 }
 
-export class ProximityCardEnroll extends CardEnroll<ProximityCard>
+export class ProximityCardEnroll extends CardEnroll
 {
     constructor(enrollService: IEnrollService, securityOfficer?: JSONWebToken) {
-        super(Credential.ProximityCard, ProximityCard, enrollService, securityOfficer);
+        super(Credential.ProximityCard, enrollService, securityOfficer);
     }
 }
-

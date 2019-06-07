@@ -1,11 +1,11 @@
-import { Utf16, Base64UrlString } from "@digitalpersona/access-management";
+import { Utf16, Base64UrlString } from "@digitalpersona/core";
 
 export type OTPCode = string;
 
-/**@internal */
+/** @internal */
 export const OTPPushCode = "push";
 
-/**@internal */
+/** @internal */
 export class OTPEnrollmentData
 {
     constructor(
@@ -27,8 +27,7 @@ export class OTPEnrollmentData
     }
 }
 
-
-/**@internal */
+/** @internal */
 export class SMSEnrollData
 {
     constructor(
@@ -38,16 +37,20 @@ export class SMSEnrollData
     ){}
 }
 
-/**@internal */
+/** @internal */
 export class OTPUnlockData
 {
     constructor(
-        serialNumber?: string|null, // Token serial number. If null or omitted, a user who is a token owner must be provided.
-        challenge?: string|null,    // Token challenge. Can be set to null when the locked device was initialized for static unlock (i.e. no challenge/response).
+        // Token serial number.
+        // If null or omitted, a user who is a token owner must be provided.
+        public serialNumber?: string|null,
+        // Token challenge.
+        // Can be set to null when the locked device was initialized for static unlock (i.e. no challenge/response).
+        public challenge?: string|null,
     ){}
 }
 
-/**@internal */
+/** @internal */
 export class EMailEnrollmentData
 {
     constructor(

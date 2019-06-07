@@ -1,34 +1,50 @@
-import { SoftwareTimeOTP, HardwareTimeOTP, IEnrollService, JSONWebToken } from "@digitalpersona/access-management";
+import { JSONWebToken, User, Credential, Base64Url } from "@digitalpersona/core";
+import { IEnrollService } from '@digitalpersona/services';
 import { Enroller } from "../../private";
 
 export class TimeOtpEnroll extends Enroller
 {
     constructor(
         enrollService: IEnrollService,
-        securityOfficer?: JSONWebToken
+        securityOfficer?: JSONWebToken,
     ){
-        super(enrollService, securityOfficer)
+        super(enrollService, securityOfficer);
     }
 
     public enrollSoftwareOtp(
-        user: JSONWebToken,
+        owner: JSONWebToken|User,
         code: string,
         key: string,
         phoneNumber?: string,
-        securityOfficer?: JSONWebToken
+        securityOfficer?: JSONWebToken,
     ){
-        return super._enroll(user, new SoftwareTimeOTP(code, key, phoneNumber), securityOfficer);
+        return super._enroll(owner, new Credential(Credential.OneTimePassword, {
+            otp: code,
+            key: Base64Url.fromUtf16(key),
+            phoneNumber,
+        }), securityOfficer);
     }
 
     public enrollHardwareOtp(
-        user: JSONWebToken,
+        owner: JSONWebToken|User,
         code: string,
         serialNumber: string,
         counter?: string,
         timer?: string,
-        securityOfficer?: JSONWebToken
+        securityOfficer?: JSONWebToken,
     ){
-        return super._enroll(user, new HardwareTimeOTP(code, serialNumber, counter, timer), securityOfficer);
+        return super._enroll(owner, new Credential(Credential.OneTimePassword, {
+            otp: code,
+            serialNumber,
+            counter,
+            timer,
+        }), securityOfficer);
     }
 
+    public unenroll(
+        owner: JSONWebToken|User,
+        securityOfficer?: JSONWebToken,
+    ){
+        return super._unenroll(owner, new Credential(Credential.OneTimePassword), securityOfficer);
+    }
 }

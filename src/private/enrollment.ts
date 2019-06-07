@@ -1,4 +1,5 @@
-import { User, JSONWebToken, Credential, IEnrollService, Ticket, CredentialId } from '@digitalpersona/access-management';
+import { User, JSONWebToken, Credential, Ticket, CredentialId, UserNameType } from '@digitalpersona/core';
+import { IEnrollService } from '@digitalpersona/services';
 
 /** @internal */
 export abstract class Enroller
@@ -15,24 +16,38 @@ export abstract class Enroller
         return this.enrollService.IsEnrollmentAllowed(
             new Ticket(securityOfficer || this.securityOfficer || ""),
             user,
-            credId
-        )
-    }
-
-    protected _enroll(user: JSONWebToken, credential: Credential, securityOfficer?: JSONWebToken): Promise<void> {
-        return this.enrollService.EnrollUserCredentials(
-            new Ticket(securityOfficer || this.securityOfficer || user),
-            new Ticket(user),
-            credential
+            credId,
         );
     }
 
-    protected _unenroll(user: JSONWebToken, credential: Credential, securityOfficer?: JSONWebToken): Promise<void> {
-        return this.enrollService.DeleteUserCredentials(
-            new Ticket(securityOfficer || this.securityOfficer || user),
-            new Ticket(user),
-            credential
-        );
+    protected _enroll(owner: JSONWebToken|User, credential: Credential, securityOfficer?: JSONWebToken): Promise<void>
+    {
+        if (owner instanceof User) {
+            return this.enrollService.EnrollAltusUserCredentials(
+                new Ticket(securityOfficer || this.securityOfficer || ""),
+                owner,
+                credential);
+        } else {
+            return this.enrollService.EnrollUserCredentials(
+                new Ticket(securityOfficer || this.securityOfficer || owner),
+                new Ticket(owner),
+                credential);
+        }
+    }
+
+    protected _unenroll(owner: JSONWebToken|User, credential: Credential, securityOfficer?: JSONWebToken): Promise<void>
+    {
+        if (owner instanceof User) {
+            return this.enrollService.DeleteAltusUserCredentials(
+                new Ticket(securityOfficer || this.securityOfficer || ""),
+                owner,
+                credential);
+        } else {
+            return this.enrollService.DeleteUserCredentials(
+                new Ticket(securityOfficer || this.securityOfficer || owner),
+                new Ticket(owner),
+                credential);
+        }
     }
 
 }

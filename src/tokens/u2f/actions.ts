@@ -1,10 +1,10 @@
-/**@internal */
+/** @internal */
 export enum CustomAction
 {
-    RequestAppId = 17
+    RequestAppId = 17,
 }
 
-/**@internal */
+/** @internal */
 export interface U2FAppId
 {
     AppId: string;

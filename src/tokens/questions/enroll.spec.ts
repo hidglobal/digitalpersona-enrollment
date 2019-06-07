@@ -1,8 +1,8 @@
 import { Env } from '../../test'
 import { SecurityQuestionsEnroll } from '.'
-import { AuthService, User, EnrollService, JSONWebToken } from '@digitalpersona/access-management';
-import { Answer, Question } from './data';
-import { PasswordAuth } from '../password';
+import { User, JSONWebToken, Question, Answer } from '@digitalpersona/core';
+import { AuthService, EnrollService } from '@digitalpersona/services';
+import { PasswordAuth } from '@digitalpersona/authentication';
 
 describe("Questions Token: ", ()=>
 {

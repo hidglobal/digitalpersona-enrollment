@@ -10,5 +10,6 @@
     "interface-name": false,
     "member-ordering":false,
     "arrow-parens": false,
+    "variable-name": false
   }
 }

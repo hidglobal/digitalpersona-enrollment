@@ -1,4 +1,4 @@
-/**@internal */
+/** @internal */
 export enum CustomAction
 {
     SendEmailVerificationRequest = 16,
@@ -6,4 +6,3 @@ export enum CustomAction
     SendEmailRequest = 514,
     UnlockActiveIdHardwareToken = 515,
 }
-

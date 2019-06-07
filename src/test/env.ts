@@ -4,7 +4,7 @@ export class Env
     public static Hardware = false;     // enables hardware tests. Must have all devices connected.
     public static Trace = false;        // enabled detailed tracing
 
-    public static Domain = "websvr-12-64.alpha.local"
+    public static Domain = "websvr-12-64.alpha.local";
 
     public static get AppId() {
         return `https://${Env.Domain}/DPFido/app-id.json`;

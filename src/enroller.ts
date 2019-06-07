@@ -1,4 +1,5 @@
-import { IAuthService, IEnrollService, JSONWebToken } from '@digitalpersona/access-management'
+import { JSONWebToken } from '@digitalpersona/core';
+import { IAuthService, IEnrollService } from '@digitalpersona/services';
 
 /*
 @category Enrollment
@@ -6,9 +7,9 @@ import { IAuthService, IEnrollService, JSONWebToken } from '@digitalpersona/acce
 export abstract class Enroller
 {
     constructor(
-        private readonly authService: IAuthService,
-        private readonly enrollService: IEnrollService,
-        private readonly securityOfficer?: JSONWebToken
+        protected readonly authService: IAuthService,
+        protected readonly enrollService: IEnrollService,
+        protected readonly securityOfficer?: JSONWebToken,
     ){}
 
 }
