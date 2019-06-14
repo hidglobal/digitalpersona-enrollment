@@ -10,6 +10,7 @@
     "interface-name": false,
     "member-ordering":false,
     "arrow-parens": false,
-    "variable-name": false
+    "variable-name": false,
+    "no-string-literal": false
   }
 }

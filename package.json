@@ -1,7 +1,7 @@
 {
   "name": "@digitalpersona/enrollment",
   "globalObject": "dp.enrollment",
-  "version": "0.2.1",
+  "version": "0.2.5",
   "publishConfig": {
     "registry": "http://localhost:4873"
   },
@@ -62,6 +62,9 @@
     "@digitalpersona/services": "^0.2.1",
     "tslib": "^1.9.3",
     "u2f-api": "^1.0.10"
+  },
+  "resolutions": {
+    "@digitalpersona/core": "^0.2.2"
   },
   "devDependencies": {
     "@types/jasmine": "^3.3.9",
