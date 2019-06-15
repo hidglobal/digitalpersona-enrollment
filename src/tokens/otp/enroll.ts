@@ -1,7 +1,8 @@
-import { JSONWebToken, User, Credential, JWT, Url, Base64, Base32 } from "@digitalpersona/core";
+import { JSONWebToken, User, Credential, JWT, Url, Base64, Base32, Ticket, Base64Url } from "@digitalpersona/core";
 import { IEnrollService } from '@digitalpersona/services';
 import { Enroller } from "../../private";
 import { OTPEnrollmentData } from "./data";
+import { CustomAction } from "./actions";
 
 export class TimeOtpEnroll extends Enroller
 {
@@ -44,16 +45,35 @@ export class TimeOtpEnroll extends Enroller
             });
     }
 
+    // send an enrollment code using SMS to the user's device
+    public sendVerificationCode(
+        identity: User|JSONWebToken,
+        key: Uint8Array,
+        phoneNumber: string,
+    ): Promise<void>
+    {
+        return this.enrollService
+            .CustomAction(Ticket.None(),
+                (identity instanceof User) ? identity : User.fromJWT(identity),
+                new Credential(Credential.OneTimePassword, {
+                    key: Base64Url.fromBytes(key),
+                    phoneNumber,
+                } ),
+                CustomAction.SendSMSRequest)
+            .then(_ => {});
+    }
+
     public enrollSoftwareOtp(
         owner: JSONWebToken|User,
         code: string,
         key: Uint8Array,
         phoneNumber?: string,
         securityOfficer?: JSONWebToken,
-    ){
+    ): Promise<void>
+    {
         return super._enroll(owner, new Credential(Credential.OneTimePassword, {
             otp: code,
-            key: Base64.fromBytes(key),
+            key: Base64Url.fromBytes(key),
             phoneNumber,
         }), securityOfficer);
     }
@@ -65,7 +85,8 @@ export class TimeOtpEnroll extends Enroller
         counter?: string,
         timer?: string,
         securityOfficer?: JSONWebToken,
-    ){
+    ): Promise<void>
+    {
         return super._enroll(owner, new Credential(Credential.OneTimePassword, {
             otp: code,
             serialNumber,
@@ -77,7 +98,8 @@ export class TimeOtpEnroll extends Enroller
     public unenroll(
         owner: JSONWebToken|User,
         securityOfficer?: JSONWebToken,
-    ){
+    ): Promise<void>
+    {
         return super._unenroll(owner, new Credential(Credential.OneTimePassword), securityOfficer);
     }
 }
