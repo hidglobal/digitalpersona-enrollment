@@ -1,77 +1,143 @@
-import { User, JSONWebToken, Credential, CredentialId, Utf8 } from '@digitalpersona/core';
-import { IEnrollService } from '@digitalpersona/services';
+import { Credential, Utf8 } from '@digitalpersona/core';
 import { Enroller } from '../../private';
+import { EnrollmentContext } from '../..';
 
-class CardEnroll extends Enroller
-{
-    protected readonly credId: CredentialId;
-
-    constructor(
-        credId: CredentialId,
-        enrollService: IEnrollService,
-        securityOfficer?: JSONWebToken,
-    ){
-        super(enrollService, securityOfficer);
-        this.credId = credId;
-    }
-
-    public canEnroll(user: User, securityOfficer?: JSONWebToken): Promise<void> {
-        return super._canEnroll(user, this.credId, securityOfficer);
-    }
-
-    public enroll(owner: JSONWebToken|User, cardData: string, securityOfficer?: JSONWebToken): Promise<void> {
-        return super._enroll(owner, new Credential(this.credId, cardData), securityOfficer);
-    }
-
-    public unenroll(owner: JSONWebToken|User, securityOfficer?: JSONWebToken): Promise<void> {
-        return super._unenroll(owner, new Credential(this.credId), securityOfficer);
-    }
-}
-
+/**
+ * Smartcard enrollment data.
+ */
 export interface SmartCardEnrollmentData {
+    /** A version. */
     version: string;
+    /** An enrollment timestamp. */
     timeStamp: number;
+    /** A key hash of the card. */
     keyHash: string;
+    /** A nickname of the card. */
     nickname: string;
 }
 
-export class SmartCardEnroll extends CardEnroll
+/**
+ * Smartcard enrollment API.
+ */
+export class SmartCardEnroll extends Enroller
 {
-    constructor(enrollService: IEnrollService, securityOfficer?: JSONWebToken) {
-        super(Credential.SmartCard, enrollService, securityOfficer);
+    /** Constructs a new smartcard enrollment API object.
+     * @param context - an {@link EnrollmentContext|enrollment context}.
+     */
+    constructor(context: EnrollmentContext){
+        super(context);
     }
 
-    public getEnrolledCards(user: User): Promise<SmartCardEnrollmentData[]>
+    /** Reads a list of enrolled cards.
+     * @returns a promise to return a list of user's enrolled cards.
+     */
+    public getEnrolledCards(): Promise<SmartCardEnrollmentData[]>
     {
-        return this.enrollService
-            .GetEnrollmentData(user, Credential.SmartCard)
+        return this.context.enrollService
+            .GetEnrollmentData(this.context.getUser(), Credential.SmartCard)
             .then(data =>
                 (JSON.parse(Utf8.fromBase64Url(data)) as SmartCardEnrollmentData[]));
     }
 
-    // Deletes a specific smart card defined by its pubilc key hash.
-    public unenroll(
-        owner: JSONWebToken|User,
-        securityOfficer?: JSONWebToken,
-        keyHash?: string,
-    )
-    : Promise<void>
+    /** Reads a card enrollment availability.
+     * @returns a fulfilled promise when a card can be enrolled, a rejected promise otherwise.
+     */
+    public canEnroll(): Promise<void>
     {
-        return super._unenroll(owner,
-            new Credential(Credential.SmartCard, keyHash), securityOfficer);
+        return super._canEnroll(Credential.SmartCard);
+    }
+
+    /** Enrolls a card.
+     * @param cardData - a card enrollment data obtained using {@link CardsReader.getCardEnrollData}.
+     * @returns a promise to perform the enrollment or reject in case of an error.
+     */
+    public enroll(cardData: string): Promise<void>
+    {
+        return super._enroll(new Credential(Credential.SmartCard, cardData));
+    }
+
+    /**
+     * Deletes a specific smart card enrollment defined by its pubilc key hash.
+     * @param keyHash - a key hash of the card. If not provided, all smartcard enrollments will be deleted.
+     * @returns a promise to delete the enrollment or reject in case of an error.
+     */
+    public unenroll(keyHash?: string): Promise<void>
+    {
+        return super._unenroll(new Credential(Credential.SmartCard, keyHash));
     }
 }
 
-export class ContactlessCardEnroll extends CardEnroll
+/**
+ * Contactless card enrollment API.
+ */
+export class ContactlessCardEnroll extends Enroller
 {
-    constructor(enrollService: IEnrollService, securityOfficer?: JSONWebToken) {
-        super(Credential.ContactlessCard, enrollService, securityOfficer);
+    /** Constructs a new contactless card enrollment API object.
+     * @param context - an {@link EnrollmentContext|enrollment context}.
+     */
+    constructor(context: EnrollmentContext){
+        super(context);
+    }
+
+    /** Reads a card enrollment availability.
+     * @returns a fulfilled promise when a card can be enrolled, a rejected promise otherwise.
+     */
+    public canEnroll(): Promise<void>
+    {
+        return super._canEnroll(Credential.ContactlessCard);
+    }
+
+    /** Enrolls a card.
+     * @param cardData - a card enrollment data obtained using {@link CardsReader.getCardEnrollData}.
+     * @returns a promise to perform the enrollment or reject in case of an error.
+     */
+    public enroll(cardData: string): Promise<void>
+    {
+        return super._enroll(new Credential(Credential.ContactlessCard, cardData));
+    }
+
+    /** Deletes the card enrollment.
+     * @returns a promise to delete the enrollment or reject in case of an error.
+     */
+    public unenroll(): Promise<void>
+    {
+        return super._unenroll(new Credential(Credential.ContactlessCard));
     }
 }
 
-export class ProximityCardEnroll extends CardEnroll
+/**
+ * Proximity card enrollment API.
+ */
+export class ProximityCardEnroll extends Enroller
 {
-    constructor(enrollService: IEnrollService, securityOfficer?: JSONWebToken) {
-        super(Credential.ProximityCard, enrollService, securityOfficer);
+    /** Constructs a new proximity card enrollment API object.
+     * @param context - an {@link EnrollmentContext|enrollment context}.
+     */
+    constructor(context: EnrollmentContext){
+        super(context);
+    }
+
+    /** Reads a card enrollment availability.
+     * @returns a fulfilled promise when a card can be enrolled, a rejected promise otherwise.
+     */
+    public canEnroll(): Promise<void> {
+        return super._canEnroll(Credential.ProximityCard);
+    }
+
+    /** Enrolls a card.
+     * @param cardData - a card enrollment data obtained using {@link CardsReader.getCardEnrollData}.
+     * @returns a promise to perform the enrollment or reject in case of an error.
+     */
+    public enroll(cardData: string): Promise<void>
+    {
+        return super._enroll(new Credential(Credential.ProximityCard, cardData));
+    }
+
+    /** Deletes the card enrollment.
+     * @returns a promise to delete the enrollment or reject in case of an error.
+     */
+    public unenroll(): Promise<void>
+    {
+        return super._unenroll(new Credential(Credential.ProximityCard));
     }
 }

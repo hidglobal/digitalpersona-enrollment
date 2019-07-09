@@ -1,42 +1,56 @@
-import { User, Credential, JSONWebToken, Question, Answer, Utf8 } from '@digitalpersona/core';
-import { IEnrollService } from '@digitalpersona/services';
+import { Credential, Question, Answer, Utf8 } from '@digitalpersona/core';
 import { Enroller } from '../../private';
+import { EnrollmentContext } from '../..';
 
+/**
+ * Maps a security question to its corresponding answer.
+ */
 export interface QuestionWithAnswer {
+    /** A security question */
     question: Question;
+    /** An answer to the security question. */
     answer: Answer;
 }
+
+/**
+ * Security Questions enrollment API.
+ */
 export class SecurityQuestionsEnroll extends Enroller
 {
-    constructor(
-        enrollService: IEnrollService,
-        securityOfficer?: JSONWebToken,
-    ){
-        super(enrollService, securityOfficer);
+    /** Constructs a new Security Questions enrollment API object.
+     * @param context - an {@link EnrollmentContext|enrollment context}.
+     */
+    constructor(context: EnrollmentContext){
+        super(context);
     }
 
-    public getEnrolledQuestions(user: User): Promise<Question[]>
+    /**
+     * Reads enrolled Security Questions.
+     * @returns a promise to return a collection of enrolled Security Questions.
+     */
+    public getEnrolledQuestions(): Promise<Question[]>
     {
-        return this.enrollService
-            .GetEnrollmentData(user, Credential.SecurityQuestions)
+        return this.context.enrollService
+            .GetEnrollmentData(this.context.getUser(), Credential.SecurityQuestions)
             .then(data =>
                 (JSON.parse(Utf8.fromBase64Url(data)) as object[])
                 .map(item => Question.fromJson(item)));
     }
 
-    public canEnroll(
-        user: User,
-        securityOfficer?: JSONWebToken,
-    ): Promise<void>
+    /** Reads a Security Questions enrollment availability.
+     * @returns a fulfilled promise when Security Questions can be enrolled, a rejected promise otherwise.
+     */
+    public canEnroll(): Promise<void>
     {
-        return super._canEnroll(user, Credential.SecurityQuestions, securityOfficer);
+        return super._canEnroll(Credential.SecurityQuestions);
     }
 
-    public enroll(
-        user: JSONWebToken,
-        questionsWithAnswers: QuestionWithAnswer[],
-        securityOfficer?: JSONWebToken,
-    ): Promise<void>
+    /**
+     * Enrolls Security Questions.
+     * @param questionsWithAnswers - a colelction of user's answers to Security Questions.
+     * @returns a promise to perform the enrollment or reject in case of an error.
+     */
+    public enroll(questionsWithAnswers: QuestionWithAnswer[]): Promise<void>
     {
         const equal = (a: QuestionWithAnswer, b: QuestionWithAnswer) =>
             a.question.number === b.question.number;
@@ -48,15 +62,15 @@ export class SecurityQuestionsEnroll extends Enroller
             .filter(unique)
             .sort((a, b) => b.question.number - a.question.number); // server requires reverse order
 
-        return super._enroll(user, new Credential(Credential.SecurityQuestions, data), securityOfficer);
+        return super._enroll(new Credential(Credential.SecurityQuestions, data));
     }
 
-    public unenroll(
-        user: JSONWebToken,
-        securityOfficer?: JSONWebToken,
-    ): Promise<void>
+    /** Deletes the Security Question enrollment.
+     * @returns a promise to delete the enrollment or reject in case of an error.
+     */
+    public unenroll(): Promise<void>
     {
-        return super._unenroll(user, new Credential(Credential.SecurityQuestions), securityOfficer);
+        return super._unenroll(new Credential(Credential.SecurityQuestions));
     }
 
 }

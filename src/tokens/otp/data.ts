@@ -2,10 +2,8 @@ import { Utf16, Base64UrlString } from "@digitalpersona/core";
 
 export type OTPCode = string;
 
-/** @internal */
 export const OTPPushCode = "push";
 
-/** @internal */
 export class OTPEnrollmentData
 {
     constructor(
@@ -27,7 +25,6 @@ export class OTPEnrollmentData
     }
 }
 
-/** @internal */
 export class SMSEnrollData
 {
     constructor(
@@ -37,7 +34,6 @@ export class SMSEnrollData
     ){}
 }
 
-/** @internal */
 export class OTPUnlockData
 {
     constructor(
@@ -50,7 +46,6 @@ export class OTPUnlockData
     ){}
 }
 
-/** @internal */
 export class EMailEnrollmentData
 {
     constructor(

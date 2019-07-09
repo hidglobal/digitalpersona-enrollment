@@ -1,62 +1,72 @@
-import { User, Credential, Ticket, JSONWebToken } from '@digitalpersona/core';
-import { IEnrollService } from '@digitalpersona/services';
+import { Credential, Ticket } from '@digitalpersona/core';
 import { CustomAction } from './actions';
 import { Enroller } from '../../private';
+import { EnrollmentContext } from '../..';
 
+/**
+ * Password enrollment API.
+ * @remarks
+ * As a primary credential, user's password cannot be unenroled, it can only be changed, reset or randomized.
+ */
 export class PasswordEnroll extends Enroller
 {
-    constructor(
-        enrollService: IEnrollService,
-        securityOfficer?: JSONWebToken,
-    ){
-        super(enrollService, securityOfficer);
+    /** Constructs a new password enrollment API object.
+     * @param context - an {@link EnrollmentContext|enrollment context}.
+     */
+    constructor(context: EnrollmentContext){
+        super(context);
     }
 
-    public canEnroll(
-        user: User,
-        securityOfficer?: JSONWebToken,
-    ): Promise<void>
+    /** Reads a password change availability.
+     * @returns a fulfilled promise when a password can be changed, a rejected promise otherwise.
+     */
+    public canEnroll(): Promise<void>
     {
-        return super._canEnroll(user, Credential.Password, securityOfficer);
+        return super._canEnroll(Credential.Password);
     }
 
+    /**
+     * Changes a password.
+     * @param newPassword - a new password.
+     * @param oldPassword - a password to replace. Must match the existing password.
+     * @returns a promise to perform the password change or reject in case of an error.
+     */
     public enroll(
-        user: JSONWebToken|User,
         newPassword: string,
         oldPassword: string,
-        securityOfficer?: JSONWebToken,
     ): Promise<void>
     {
-        return super._enroll(user, new Credential(Credential.Password, {oldPassword, newPassword}), securityOfficer);
+        return super._enroll(new Credential(Credential.Password, {oldPassword, newPassword}));
     }
 
+    /**
+     * Resets a password.
+     * @param newPassword - a new password which will replace any existing password.
+     * @returns a promise to perform the password reset or reject in case of an error.
+     * @remarks
+     * DigitalPersona AD Server supports password randomization only for ActiveDirectory users.
+     * DigitalPersona LDS Server supports password randomization only for DigitalPersona users (formerly "Altus Users").
+     */
     public reset(
-        user: JSONWebToken,
         newPassword: string,
-        securityOfficer?: JSONWebToken,
     ): Promise<void>
     {
-        // TODO: this operation is not supported for AD users, check and throw
-        return super._enroll(user, new Credential(Credential.Password, newPassword), securityOfficer);
+        return super._enroll(new Credential(Credential.Password, newPassword));
     }
 
-    public randomize(
-        user: User,
-        securityOfficer?: JSONWebToken,
-    ): Promise<string>
+    /**
+     * Creates a new strong password with good complexity properties.
+     * @returns a promise to return a randomized password.
+     * @remarks
+     * DigitalPersona AD Server supports password randomization only for ActiveDirectory users.
+     * DigitalPersona LDS Server supports password randomization only for DigitalPersona users (formerly "Altus Users").
+     */
+    public randomize(): Promise<string>
     {
-        return this.enrollService.CustomAction(
-            new Ticket(securityOfficer || this.securityOfficer || ""),
-            user,
+        return this.context.enrollService.CustomAction(
+            new Ticket(this.context.securityOfficer || ""),
+            this.context.getUser(),
             new Credential(Credential.Password),
             CustomAction.PasswordRandomization);
     }
-
-    // public reset(user: User, newPassword: string, securityOfficer?: JSONWebToken): Promise<string> {
-    //     return this.enrollService.CustomAction(
-    //         CustomAction.PasswordReset,
-    //         new Ticket(securityOfficer || this.securityOfficer || ""),
-    //         user,
-    //         new Password(newPassword));
-    // }
 }

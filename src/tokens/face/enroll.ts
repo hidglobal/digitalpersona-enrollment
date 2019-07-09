@@ -1,23 +1,39 @@
-import { User, JSONWebToken, Credential, BioSample } from '@digitalpersona/core';
-import { IEnrollService } from '@digitalpersona/services';
+import { Credential, BioSample } from '@digitalpersona/core';
 import { Enroller } from '../../private';
+import { EnrollmentContext } from '../..';
 
+/**
+ * Face enrollment API.
+ */
 export class FaceEnroll extends Enroller
 {
-    constructor(enrollService: IEnrollService, securityOfficer?: JSONWebToken) {
-        super(enrollService, securityOfficer);
+    /** Constructs a new face enrollment API object.
+     * @param context - an {@link EnrollmentContext|enrollment context}.
+     */
+    constructor(context: EnrollmentContext){
+        super(context);
     }
 
-    public canEnroll(user: User, securityOfficer?: JSONWebToken): Promise<void> {
-        return super._canEnroll(user, Credential.Face, securityOfficer);
+    /** Reads a face enrollment availability.
+     * @returns a fulfilled promise when a face can be enrolled, a rejected promise otherwise.
+     */
+    public canEnroll(): Promise<void> {
+        return super._canEnroll(Credential.Face);
     }
 
-    public enroll(owner: JSONWebToken|User, samples: BioSample[], securityOfficer?: JSONWebToken): Promise<void> {
-        return super._enroll(owner, new Credential(Credential.Face, samples), securityOfficer);
+    /** Enrolls a face.
+     * @param samples - a collection of face images.
+     * @returns a promise to perform the enrollment or reject in case of an error.
+     */
+    public enroll(samples: BioSample[]): Promise<void> {
+        return super._enroll(new Credential(Credential.Face, samples));
     }
 
-    public unenroll(owner: JSONWebToken|User, securityOfficer?: JSONWebToken): Promise<void> {
-        return super._unenroll(owner, new Credential(Credential.Face), securityOfficer);
+    /** Deletes the face enrollment.
+     * @returns a promise to delete the enrollment or reject in case of an error.
+     */
+    public unenroll(): Promise<void> {
+        return super._unenroll(new Credential(Credential.Face));
     }
 
 }
