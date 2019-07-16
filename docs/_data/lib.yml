@@ -1,0 +1,6 @@
+name: DigitalPersona Web Enrollment
+shortName: DPAM Web Enrollment
+git: 'https://github.com/hidglobal'
+repo: digitalpersona-enrollment
+package: '@digitalpersona/enrollment'
+api: enrollment
