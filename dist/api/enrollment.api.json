@@ -1,0 +1,3240 @@
+{
+  "metadata": {
+    "toolPackage": "@microsoft/api-extractor",
+    "toolVersion": "7.2.2",
+    "schemaVersion": 1001,
+    "oldestForwardsCompatibleVersion": 1001
+  },
+  "kind": "Package",
+  "canonicalReference": "@digitalpersona/enrollment",
+  "docComment": "",
+  "name": "@digitalpersona/enrollment",
+  "members": [
+    {
+      "kind": "EntryPoint",
+      "canonicalReference": "",
+      "name": "",
+      "members": [
+        {
+          "kind": "Class",
+          "canonicalReference": "(ContactlessCardEnroll:class)",
+          "docComment": "/**\n * Contactless card enrollment API.\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare class "
+            },
+            {
+              "kind": "Reference",
+              "text": "ContactlessCardEnroll"
+            },
+            {
+              "kind": "Content",
+              "text": " extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "Enroller"
+            },
+            {
+              "kind": "Content",
+              "text": " "
+            }
+          ],
+          "releaseTag": "Public",
+          "name": "ContactlessCardEnroll",
+          "members": [
+            {
+              "kind": "Constructor",
+              "canonicalReference": "(:constructor,0)",
+              "docComment": "/**\n * Constructs a new contactless card enrollment API object.\n *\n * @param context - an {@link EnrollmentContext | enrollment context}.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "constructor("
+                },
+                {
+                  "kind": "Reference",
+                  "text": "context"
+                },
+                {
+                  "kind": "Content",
+                  "text": ": "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "EnrollmentContext"
+                },
+                {
+                  "kind": "Content",
+                  "text": ");"
+                }
+              ],
+              "releaseTag": "Public",
+              "overloadIndex": 0,
+              "parameters": [
+                {
+                  "parameterName": "context",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 3,
+                    "endIndex": 4
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "(canEnroll:instance,0)",
+              "docComment": "/**\n * Reads a card enrollment availability.\n *\n * @returns a fulfilled promise when a card can be enrolled, a rejected promise otherwise.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Reference",
+                  "text": "canEnroll"
+                },
+                {
+                  "kind": "Content",
+                  "text": "(): "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Promise"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<void>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 2,
+                "endIndex": 4
+              },
+              "releaseTag": "Public",
+              "overloadIndex": 0,
+              "parameters": [],
+              "name": "canEnroll"
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "(enroll:instance,0)",
+              "docComment": "/**\n * Enrolls a card.\n *\n * @param cardData - a card enrollment data obtained using {@link CardsReader.getCardEnrollData}.\n *\n * @returns a promise to perform the enrollment or reject in case of an error.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Reference",
+                  "text": "enroll"
+                },
+                {
+                  "kind": "Content",
+                  "text": "("
+                },
+                {
+                  "kind": "Reference",
+                  "text": "cardData"
+                },
+                {
+                  "kind": "Content",
+                  "text": ": "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": "): "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Promise"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<void>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 6,
+                "endIndex": 8
+              },
+              "releaseTag": "Public",
+              "overloadIndex": 0,
+              "parameters": [
+                {
+                  "parameterName": "cardData",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 4,
+                    "endIndex": 5
+                  }
+                }
+              ],
+              "name": "enroll"
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "(unenroll:instance,0)",
+              "docComment": "/**\n * Deletes the card enrollment.\n *\n * @returns a promise to delete the enrollment or reject in case of an error.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Reference",
+                  "text": "unenroll"
+                },
+                {
+                  "kind": "Content",
+                  "text": "(): "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Promise"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<void>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 2,
+                "endIndex": 4
+              },
+              "releaseTag": "Public",
+              "overloadIndex": 0,
+              "parameters": [],
+              "name": "unenroll"
+            }
+          ],
+          "extendsTokenRange": {
+            "startIndex": 3,
+            "endIndex": 5
+          },
+          "implementsTokenRanges": []
+        },
+        {
+          "kind": "Class",
+          "canonicalReference": "(EnrollmentContext:class)",
+          "docComment": "/**\n * Enrollment context.\n *\n * @remarks\n *\n * Pass the context object into token enrollment APIs. The single context may be shared.\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare class "
+            },
+            {
+              "kind": "Reference",
+              "text": "EnrollmentContext"
+            },
+            {
+              "kind": "Content",
+              "text": " "
+            }
+          ],
+          "releaseTag": "Public",
+          "name": "EnrollmentContext",
+          "members": [
+            {
+              "kind": "Constructor",
+              "canonicalReference": "(:constructor,0)",
+              "docComment": "/**\n * Constructs a new instance of the `EnrollmentContext` class\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "constructor(\n    "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "enrollService"
+                },
+                {
+                  "kind": "Content",
+                  "text": ": "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "IEnrollService"
+                },
+                {
+                  "kind": "Content",
+                  "text": ", \n    "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "user"
+                },
+                {
+                  "kind": "Content",
+                  "text": ": "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "JSONWebToken"
+                },
+                {
+                  "kind": "Content",
+                  "text": " | "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "User"
+                },
+                {
+                  "kind": "Content",
+                  "text": ", \n    "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "securityOfficer"
+                },
+                {
+                  "kind": "Content",
+                  "text": "?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string | undefined"
+                },
+                {
+                  "kind": "Content",
+                  "text": ");"
+                }
+              ],
+              "releaseTag": "Public",
+              "overloadIndex": 0,
+              "parameters": [
+                {
+                  "parameterName": "enrollService",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 3,
+                    "endIndex": 4
+                  }
+                },
+                {
+                  "parameterName": "user",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 7,
+                    "endIndex": 10
+                  }
+                },
+                {
+                  "parameterName": "securityOfficer",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 13,
+                    "endIndex": 14
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "(enrollService:instance)",
+              "docComment": "/**\n * DigitalPersona Enrollment web service client\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "readonly "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "enrollService"
+                },
+                {
+                  "kind": "Content",
+                  "text": ": "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "IEnrollService"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "releaseTag": "Public",
+              "name": "enrollService",
+              "propertyTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "isStatic": false
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "(getJWT:instance,0)",
+              "docComment": "/**\n * Returns user identity in a form of authentication token.\n *\n * @remarks\n *\n * The user must be authenticated.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Reference",
+                  "text": "getJWT"
+                },
+                {
+                  "kind": "Content",
+                  "text": "(): "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "JSONWebToken"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 2,
+                "endIndex": 3
+              },
+              "releaseTag": "Public",
+              "overloadIndex": 0,
+              "parameters": [],
+              "name": "getJWT"
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "(getUser:instance,0)",
+              "docComment": "/**\n * Returns user identity in a form of a username.\n *\n * @remarks\n *\n * The user may be authenticated or not. If authenticated, the username will be produced from the authentication token claims.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Reference",
+                  "text": "getUser"
+                },
+                {
+                  "kind": "Content",
+                  "text": "(): "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "User"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 2,
+                "endIndex": 3
+              },
+              "releaseTag": "Public",
+              "overloadIndex": 0,
+              "parameters": [],
+              "name": "getUser"
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "(isAuthenticated:instance,0)",
+              "docComment": "/**\n * Check is the user has an authentication token, or just a user name.\n *\n * @returns `true` if user identity represented by an authenticatication token, `false` otherwise.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Reference",
+                  "text": "isAuthenticated"
+                },
+                {
+                  "kind": "Content",
+                  "text": "(): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "boolean"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 2,
+                "endIndex": 3
+              },
+              "releaseTag": "Public",
+              "overloadIndex": 0,
+              "parameters": [],
+              "name": "isAuthenticated"
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "(securityOfficer:instance)",
+              "docComment": "/**\n * An optional JSON Web Token of a security officer performing an attended enrollment. If not provided, the API should try to use a user's own token instead for a self-enrollment. In this case the user must be allowed to do self-enrollment.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Reference",
+                  "text": "securityOfficer"
+                },
+                {
+                  "kind": "Content",
+                  "text": "?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string | undefined"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "releaseTag": "Public",
+              "name": "securityOfficer",
+              "propertyTypeTokenRange": {
+                "startIndex": 2,
+                "endIndex": 3
+              },
+              "isStatic": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "(user:instance)",
+              "docComment": "/**\n * A JSON Web Token or a username of a user whose credentials are to be enrolled.\n *\n * @remarks\n *\n * Only DigitalPersona users (formerly \"Altus User\") can be enrolled without authentication, i.e. using only a user name. Other users must be authenticated, i.e. have a JSON Web Token.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Reference",
+                  "text": "user"
+                },
+                {
+                  "kind": "Content",
+                  "text": ": "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "JSONWebToken"
+                },
+                {
+                  "kind": "Content",
+                  "text": " | "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "User"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "releaseTag": "Public",
+              "name": "user",
+              "propertyTypeTokenRange": {
+                "startIndex": 2,
+                "endIndex": 5
+              },
+              "isStatic": false
+            }
+          ],
+          "implementsTokenRanges": []
+        },
+        {
+          "kind": "Class",
+          "canonicalReference": "(FaceEnroll:class)",
+          "docComment": "/**\n * Face enrollment API.\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare class "
+            },
+            {
+              "kind": "Reference",
+              "text": "FaceEnroll"
+            },
+            {
+              "kind": "Content",
+              "text": " extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "Enroller"
+            },
+            {
+              "kind": "Content",
+              "text": " "
+            }
+          ],
+          "releaseTag": "Public",
+          "name": "FaceEnroll",
+          "members": [
+            {
+              "kind": "Constructor",
+              "canonicalReference": "(:constructor,0)",
+              "docComment": "/**\n * Constructs a new face enrollment API object.\n *\n * @param context - an {@link EnrollmentContext | enrollment context}.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "constructor("
+                },
+                {
+                  "kind": "Reference",
+                  "text": "context"
+                },
+                {
+                  "kind": "Content",
+                  "text": ": "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "EnrollmentContext"
+                },
+                {
+                  "kind": "Content",
+                  "text": ");"
+                }
+              ],
+              "releaseTag": "Public",
+              "overloadIndex": 0,
+              "parameters": [
+                {
+                  "parameterName": "context",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 3,
+                    "endIndex": 4
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "(canEnroll:instance,0)",
+              "docComment": "/**\n * Reads a face enrollment availability.\n *\n * @returns a fulfilled promise when a face can be enrolled, a rejected promise otherwise.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Reference",
+                  "text": "canEnroll"
+                },
+                {
+                  "kind": "Content",
+                  "text": "(): "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Promise"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<void>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 2,
+                "endIndex": 4
+              },
+              "releaseTag": "Public",
+              "overloadIndex": 0,
+              "parameters": [],
+              "name": "canEnroll"
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "(enroll:instance,0)",
+              "docComment": "/**\n * Enrolls a face.\n *\n * @param samples - a collection of face images.\n *\n * @returns a promise to perform the enrollment or reject in case of an error.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Reference",
+                  "text": "enroll"
+                },
+                {
+                  "kind": "Content",
+                  "text": "("
+                },
+                {
+                  "kind": "Reference",
+                  "text": "samples"
+                },
+                {
+                  "kind": "Content",
+                  "text": ": "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "BioSample"
+                },
+                {
+                  "kind": "Content",
+                  "text": "[]"
+                },
+                {
+                  "kind": "Content",
+                  "text": "): "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Promise"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<void>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 7,
+                "endIndex": 9
+              },
+              "releaseTag": "Public",
+              "overloadIndex": 0,
+              "parameters": [
+                {
+                  "parameterName": "samples",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 4,
+                    "endIndex": 6
+                  }
+                }
+              ],
+              "name": "enroll"
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "(unenroll:instance,0)",
+              "docComment": "/**\n * Deletes the face enrollment.\n *\n * @returns a promise to delete the enrollment or reject in case of an error.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Reference",
+                  "text": "unenroll"
+                },
+                {
+                  "kind": "Content",
+                  "text": "(): "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Promise"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<void>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 2,
+                "endIndex": 4
+              },
+              "releaseTag": "Public",
+              "overloadIndex": 0,
+              "parameters": [],
+              "name": "unenroll"
+            }
+          ],
+          "extendsTokenRange": {
+            "startIndex": 3,
+            "endIndex": 5
+          },
+          "implementsTokenRanges": []
+        },
+        {
+          "kind": "Class",
+          "canonicalReference": "(FingerprintsEnroll:class)",
+          "docComment": "/**\n * Fingerprint enrollment API.\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare class "
+            },
+            {
+              "kind": "Reference",
+              "text": "FingerprintsEnroll"
+            },
+            {
+              "kind": "Content",
+              "text": " extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "Enroller"
+            },
+            {
+              "kind": "Content",
+              "text": " "
+            }
+          ],
+          "releaseTag": "Public",
+          "name": "FingerprintsEnroll",
+          "members": [
+            {
+              "kind": "Constructor",
+              "canonicalReference": "(:constructor,0)",
+              "docComment": "/**\n * Constructs a new fingerprint enrollment API object.\n *\n * @param context - an {@link EnrollmentContext | enrollment context}.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "constructor("
+                },
+                {
+                  "kind": "Reference",
+                  "text": "context"
+                },
+                {
+                  "kind": "Content",
+                  "text": ": "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "EnrollmentContext"
+                },
+                {
+                  "kind": "Content",
+                  "text": ");"
+                }
+              ],
+              "releaseTag": "Public",
+              "overloadIndex": 0,
+              "parameters": [
+                {
+                  "parameterName": "context",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 3,
+                    "endIndex": 4
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "(canEnroll:instance,0)",
+              "docComment": "/**\n * Reads a fingerprint enrollment availability.\n *\n * @returns a fulfilled promise when fingerprints can be enrolled, a rejected promise otherwise.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Reference",
+                  "text": "canEnroll"
+                },
+                {
+                  "kind": "Content",
+                  "text": "(): "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Promise"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<void>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 2,
+                "endIndex": 4
+              },
+              "releaseTag": "Public",
+              "overloadIndex": 0,
+              "parameters": [],
+              "name": "canEnroll"
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "(enroll:instance,0)",
+              "docComment": "/**\n * Enrolls a fingerprint.\n *\n * @param position - a position of a finger to enroll\n *\n * @param samples - a collection of fingerprint scans.\n *\n * @returns a promise to perform the enrollment or reject in case of an error.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Reference",
+                  "text": "enroll"
+                },
+                {
+                  "kind": "Content",
+                  "text": "("
+                },
+                {
+                  "kind": "Reference",
+                  "text": "position"
+                },
+                {
+                  "kind": "Content",
+                  "text": ": "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "FingerPosition"
+                },
+                {
+                  "kind": "Content",
+                  "text": " | "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Finger"
+                },
+                {
+                  "kind": "Content",
+                  "text": ", "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "samples"
+                },
+                {
+                  "kind": "Content",
+                  "text": ": "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "BioSample"
+                },
+                {
+                  "kind": "Content",
+                  "text": "[]"
+                },
+                {
+                  "kind": "Content",
+                  "text": "): "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Promise"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<void>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 13,
+                "endIndex": 15
+              },
+              "releaseTag": "Public",
+              "overloadIndex": 0,
+              "parameters": [
+                {
+                  "parameterName": "position",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 4,
+                    "endIndex": 7
+                  }
+                },
+                {
+                  "parameterName": "samples",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 10,
+                    "endIndex": 12
+                  }
+                }
+              ],
+              "name": "enroll"
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "(getEnrolledFingers:instance,0)",
+              "docComment": "/**\n * Reads a fingerprint enrollment status.\n *\n * @returns a promise to return fingerprint enrollment data. The data is a collection of enrolled fingers.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Reference",
+                  "text": "getEnrolledFingers"
+                },
+                {
+                  "kind": "Content",
+                  "text": "(): "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Promise"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<"
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Fingers"
+                },
+                {
+                  "kind": "Content",
+                  "text": ">"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 2,
+                "endIndex": 6
+              },
+              "releaseTag": "Public",
+              "overloadIndex": 0,
+              "parameters": [],
+              "name": "getEnrolledFingers"
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "(unenroll:instance,0)",
+              "docComment": "/**\n * Deletes the fingerprint enrollment.\n *\n * @param position - a position(s) of a finger(s) to delete. If not defined, all enrolled fingerprintss will be deleted.\n *\n * @returns a promise to delete the enrollment or reject in case of an error.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Reference",
+                  "text": "unenroll"
+                },
+                {
+                  "kind": "Content",
+                  "text": "("
+                },
+                {
+                  "kind": "Reference",
+                  "text": "position"
+                },
+                {
+                  "kind": "Content",
+                  "text": "?: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "FingerPosition"
+                },
+                {
+                  "kind": "Content",
+                  "text": " | "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Finger"
+                },
+                {
+                  "kind": "Content",
+                  "text": " | "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Array"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<"
+                },
+                {
+                  "kind": "Reference",
+                  "text": "FingerPosition"
+                },
+                {
+                  "kind": "Content",
+                  "text": " | "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Finger"
+                },
+                {
+                  "kind": "Content",
+                  "text": ">"
+                },
+                {
+                  "kind": "Content",
+                  "text": "): "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Promise"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<void>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 15,
+                "endIndex": 17
+              },
+              "releaseTag": "Public",
+              "overloadIndex": 0,
+              "parameters": [
+                {
+                  "parameterName": "position",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 4,
+                    "endIndex": 14
+                  }
+                }
+              ],
+              "name": "unenroll"
+            }
+          ],
+          "extendsTokenRange": {
+            "startIndex": 3,
+            "endIndex": 5
+          },
+          "implementsTokenRanges": []
+        },
+        {
+          "kind": "Class",
+          "canonicalReference": "(PasswordEnroll:class)",
+          "docComment": "/**\n * Password enrollment API.\n *\n * @remarks\n *\n * As a primary credential, user's password cannot be unenroled, it can only be changed, reset or randomized.\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare class "
+            },
+            {
+              "kind": "Reference",
+              "text": "PasswordEnroll"
+            },
+            {
+              "kind": "Content",
+              "text": " extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "Enroller"
+            },
+            {
+              "kind": "Content",
+              "text": " "
+            }
+          ],
+          "releaseTag": "Public",
+          "name": "PasswordEnroll",
+          "members": [
+            {
+              "kind": "Constructor",
+              "canonicalReference": "(:constructor,0)",
+              "docComment": "/**\n * Constructs a new password enrollment API object.\n *\n * @param context - an {@link EnrollmentContext | enrollment context}.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "constructor("
+                },
+                {
+                  "kind": "Reference",
+                  "text": "context"
+                },
+                {
+                  "kind": "Content",
+                  "text": ": "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "EnrollmentContext"
+                },
+                {
+                  "kind": "Content",
+                  "text": ");"
+                }
+              ],
+              "releaseTag": "Public",
+              "overloadIndex": 0,
+              "parameters": [
+                {
+                  "parameterName": "context",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 3,
+                    "endIndex": 4
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "(canEnroll:instance,0)",
+              "docComment": "/**\n * Reads a password change availability.\n *\n * @returns a fulfilled promise when a password can be changed, a rejected promise otherwise.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Reference",
+                  "text": "canEnroll"
+                },
+                {
+                  "kind": "Content",
+                  "text": "(): "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Promise"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<void>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 2,
+                "endIndex": 4
+              },
+              "releaseTag": "Public",
+              "overloadIndex": 0,
+              "parameters": [],
+              "name": "canEnroll"
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "(enroll:instance,0)",
+              "docComment": "/**\n * Changes a password.\n *\n * @param newPassword - a new password.\n *\n * @param oldPassword - a password to replace. Must match the existing password.\n *\n * @returns a promise to perform the password change or reject in case of an error.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Reference",
+                  "text": "enroll"
+                },
+                {
+                  "kind": "Content",
+                  "text": "("
+                },
+                {
+                  "kind": "Reference",
+                  "text": "newPassword"
+                },
+                {
+                  "kind": "Content",
+                  "text": ": "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ", "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "oldPassword"
+                },
+                {
+                  "kind": "Content",
+                  "text": ": "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": "): "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Promise"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<void>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 10,
+                "endIndex": 12
+              },
+              "releaseTag": "Public",
+              "overloadIndex": 0,
+              "parameters": [
+                {
+                  "parameterName": "newPassword",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 4,
+                    "endIndex": 5
+                  }
+                },
+                {
+                  "parameterName": "oldPassword",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 8,
+                    "endIndex": 9
+                  }
+                }
+              ],
+              "name": "enroll"
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "(randomize:instance,0)",
+              "docComment": "/**\n * Creates a new strong password with good complexity properties.\n *\n * @remarks\n *\n * DigitalPersona AD Server supports password randomization only for ActiveDirectory users. DigitalPersona LDS Server supports password randomization only for DigitalPersona users (formerly \"Altus Users\").\n *\n * @returns a promise to return a randomized password.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Reference",
+                  "text": "randomize"
+                },
+                {
+                  "kind": "Content",
+                  "text": "(): "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Promise"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<string>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 2,
+                "endIndex": 4
+              },
+              "releaseTag": "Public",
+              "overloadIndex": 0,
+              "parameters": [],
+              "name": "randomize"
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "(reset:instance,0)",
+              "docComment": "/**\n * Resets a password.\n *\n * @remarks\n *\n * DigitalPersona AD Server supports password randomization only for ActiveDirectory users. DigitalPersona LDS Server supports password randomization only for DigitalPersona users (formerly \"Altus Users\").\n *\n * @param newPassword - a new password which will replace any existing password.\n *\n * @returns a promise to perform the password reset or reject in case of an error.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Reference",
+                  "text": "reset"
+                },
+                {
+                  "kind": "Content",
+                  "text": "("
+                },
+                {
+                  "kind": "Reference",
+                  "text": "newPassword"
+                },
+                {
+                  "kind": "Content",
+                  "text": ": "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": "): "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Promise"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<void>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 6,
+                "endIndex": 8
+              },
+              "releaseTag": "Public",
+              "overloadIndex": 0,
+              "parameters": [
+                {
+                  "parameterName": "newPassword",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 4,
+                    "endIndex": 5
+                  }
+                }
+              ],
+              "name": "reset"
+            }
+          ],
+          "extendsTokenRange": {
+            "startIndex": 3,
+            "endIndex": 5
+          },
+          "implementsTokenRanges": []
+        },
+        {
+          "kind": "Class",
+          "canonicalReference": "(PinEnroll:class)",
+          "docComment": "/**\n * Personal Identification Number (PIN) enrollment API.\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare class "
+            },
+            {
+              "kind": "Reference",
+              "text": "PinEnroll"
+            },
+            {
+              "kind": "Content",
+              "text": " extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "Enroller"
+            },
+            {
+              "kind": "Content",
+              "text": " "
+            }
+          ],
+          "releaseTag": "Public",
+          "name": "PinEnroll",
+          "members": [
+            {
+              "kind": "Constructor",
+              "canonicalReference": "(:constructor,0)",
+              "docComment": "/**\n * Constructs a new PIN enrollment API object.\n *\n * @param context - an {@link EnrollmentContext | enrollment context}.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "constructor("
+                },
+                {
+                  "kind": "Reference",
+                  "text": "context"
+                },
+                {
+                  "kind": "Content",
+                  "text": ": "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "EnrollmentContext"
+                },
+                {
+                  "kind": "Content",
+                  "text": ");"
+                }
+              ],
+              "releaseTag": "Public",
+              "overloadIndex": 0,
+              "parameters": [
+                {
+                  "parameterName": "context",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 3,
+                    "endIndex": 4
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "(canEnroll:instance,0)",
+              "docComment": "/**\n * Reads a PIN enrollment availability.\n *\n * @returns a fulfilled promise when a PIN can be enrolled, a rejected promise otherwise.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Reference",
+                  "text": "canEnroll"
+                },
+                {
+                  "kind": "Content",
+                  "text": "(): "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Promise"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<void>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 2,
+                "endIndex": 4
+              },
+              "releaseTag": "Public",
+              "overloadIndex": 0,
+              "parameters": [],
+              "name": "canEnroll"
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "(enroll:instance,0)",
+              "docComment": "/**\n * Enrolls a PIN.\n *\n * @param pin - a Personal Identification Number (PIN).\n *\n * @returns a promise to perform the enrollment or reject in case of an error.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Reference",
+                  "text": "enroll"
+                },
+                {
+                  "kind": "Content",
+                  "text": "("
+                },
+                {
+                  "kind": "Reference",
+                  "text": "pin"
+                },
+                {
+                  "kind": "Content",
+                  "text": ": "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": "): "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Promise"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<void>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 6,
+                "endIndex": 8
+              },
+              "releaseTag": "Public",
+              "overloadIndex": 0,
+              "parameters": [
+                {
+                  "parameterName": "pin",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 4,
+                    "endIndex": 5
+                  }
+                }
+              ],
+              "name": "enroll"
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "(unenroll:instance,0)",
+              "docComment": "/**\n * Deletes the PIN enrollment.\n *\n * @returns a promise to delete the enrollment or reject in case of an error.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Reference",
+                  "text": "unenroll"
+                },
+                {
+                  "kind": "Content",
+                  "text": "(): "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Promise"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<void>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 2,
+                "endIndex": 4
+              },
+              "releaseTag": "Public",
+              "overloadIndex": 0,
+              "parameters": [],
+              "name": "unenroll"
+            }
+          ],
+          "extendsTokenRange": {
+            "startIndex": 3,
+            "endIndex": 5
+          },
+          "implementsTokenRanges": []
+        },
+        {
+          "kind": "Class",
+          "canonicalReference": "(ProximityCardEnroll:class)",
+          "docComment": "/**\n * Proximity card enrollment API.\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare class "
+            },
+            {
+              "kind": "Reference",
+              "text": "ProximityCardEnroll"
+            },
+            {
+              "kind": "Content",
+              "text": " extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "Enroller"
+            },
+            {
+              "kind": "Content",
+              "text": " "
+            }
+          ],
+          "releaseTag": "Public",
+          "name": "ProximityCardEnroll",
+          "members": [
+            {
+              "kind": "Constructor",
+              "canonicalReference": "(:constructor,0)",
+              "docComment": "/**\n * Constructs a new proximity card enrollment API object.\n *\n * @param context - an {@link EnrollmentContext | enrollment context}.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "constructor("
+                },
+                {
+                  "kind": "Reference",
+                  "text": "context"
+                },
+                {
+                  "kind": "Content",
+                  "text": ": "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "EnrollmentContext"
+                },
+                {
+                  "kind": "Content",
+                  "text": ");"
+                }
+              ],
+              "releaseTag": "Public",
+              "overloadIndex": 0,
+              "parameters": [
+                {
+                  "parameterName": "context",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 3,
+                    "endIndex": 4
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "(canEnroll:instance,0)",
+              "docComment": "/**\n * Reads a card enrollment availability.\n *\n * @returns a fulfilled promise when a card can be enrolled, a rejected promise otherwise.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Reference",
+                  "text": "canEnroll"
+                },
+                {
+                  "kind": "Content",
+                  "text": "(): "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Promise"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<void>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 2,
+                "endIndex": 4
+              },
+              "releaseTag": "Public",
+              "overloadIndex": 0,
+              "parameters": [],
+              "name": "canEnroll"
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "(enroll:instance,0)",
+              "docComment": "/**\n * Enrolls a card.\n *\n * @param cardData - a card enrollment data obtained using {@link CardsReader.getCardEnrollData}.\n *\n * @returns a promise to perform the enrollment or reject in case of an error.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Reference",
+                  "text": "enroll"
+                },
+                {
+                  "kind": "Content",
+                  "text": "("
+                },
+                {
+                  "kind": "Reference",
+                  "text": "cardData"
+                },
+                {
+                  "kind": "Content",
+                  "text": ": "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": "): "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Promise"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<void>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 6,
+                "endIndex": 8
+              },
+              "releaseTag": "Public",
+              "overloadIndex": 0,
+              "parameters": [
+                {
+                  "parameterName": "cardData",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 4,
+                    "endIndex": 5
+                  }
+                }
+              ],
+              "name": "enroll"
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "(unenroll:instance,0)",
+              "docComment": "/**\n * Deletes the card enrollment.\n *\n * @returns a promise to delete the enrollment or reject in case of an error.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Reference",
+                  "text": "unenroll"
+                },
+                {
+                  "kind": "Content",
+                  "text": "(): "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Promise"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<void>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 2,
+                "endIndex": 4
+              },
+              "releaseTag": "Public",
+              "overloadIndex": 0,
+              "parameters": [],
+              "name": "unenroll"
+            }
+          ],
+          "extendsTokenRange": {
+            "startIndex": 3,
+            "endIndex": 5
+          },
+          "implementsTokenRanges": []
+        },
+        {
+          "kind": "Interface",
+          "canonicalReference": "(QuestionWithAnswer:interface)",
+          "docComment": "/**\n * Maps a security question to its corresponding answer.\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export interface "
+            },
+            {
+              "kind": "Reference",
+              "text": "QuestionWithAnswer"
+            },
+            {
+              "kind": "Content",
+              "text": " "
+            }
+          ],
+          "releaseTag": "Public",
+          "name": "QuestionWithAnswer",
+          "members": [
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "answer",
+              "docComment": "/**\n * An answer to the security question.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Reference",
+                  "text": "answer"
+                },
+                {
+                  "kind": "Content",
+                  "text": ": "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Answer"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "releaseTag": "Public",
+              "name": "answer",
+              "propertyTypeTokenRange": {
+                "startIndex": 2,
+                "endIndex": 3
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "question",
+              "docComment": "/**\n * A security question\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Reference",
+                  "text": "question"
+                },
+                {
+                  "kind": "Content",
+                  "text": ": "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Question"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "releaseTag": "Public",
+              "name": "question",
+              "propertyTypeTokenRange": {
+                "startIndex": 2,
+                "endIndex": 3
+              }
+            }
+          ],
+          "extendsTokenRanges": []
+        },
+        {
+          "kind": "Class",
+          "canonicalReference": "(SecurityQuestionsEnroll:class)",
+          "docComment": "/**\n * Security Questions enrollment API.\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare class "
+            },
+            {
+              "kind": "Reference",
+              "text": "SecurityQuestionsEnroll"
+            },
+            {
+              "kind": "Content",
+              "text": " extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "Enroller"
+            },
+            {
+              "kind": "Content",
+              "text": " "
+            }
+          ],
+          "releaseTag": "Public",
+          "name": "SecurityQuestionsEnroll",
+          "members": [
+            {
+              "kind": "Constructor",
+              "canonicalReference": "(:constructor,0)",
+              "docComment": "/**\n * Constructs a new Security Questions enrollment API object.\n *\n * @param context - an {@link EnrollmentContext | enrollment context}.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "constructor("
+                },
+                {
+                  "kind": "Reference",
+                  "text": "context"
+                },
+                {
+                  "kind": "Content",
+                  "text": ": "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "EnrollmentContext"
+                },
+                {
+                  "kind": "Content",
+                  "text": ");"
+                }
+              ],
+              "releaseTag": "Public",
+              "overloadIndex": 0,
+              "parameters": [
+                {
+                  "parameterName": "context",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 3,
+                    "endIndex": 4
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "(canEnroll:instance,0)",
+              "docComment": "/**\n * Reads a Security Questions enrollment availability.\n *\n * @returns a fulfilled promise when Security Questions can be enrolled, a rejected promise otherwise.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Reference",
+                  "text": "canEnroll"
+                },
+                {
+                  "kind": "Content",
+                  "text": "(): "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Promise"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<void>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 2,
+                "endIndex": 4
+              },
+              "releaseTag": "Public",
+              "overloadIndex": 0,
+              "parameters": [],
+              "name": "canEnroll"
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "(enroll:instance,0)",
+              "docComment": "/**\n * Enrolls Security Questions.\n *\n * @param questionsWithAnswers - a colelction of user's answers to Security Questions.\n *\n * @returns a promise to perform the enrollment or reject in case of an error.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Reference",
+                  "text": "enroll"
+                },
+                {
+                  "kind": "Content",
+                  "text": "("
+                },
+                {
+                  "kind": "Reference",
+                  "text": "questionsWithAnswers"
+                },
+                {
+                  "kind": "Content",
+                  "text": ": "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "QuestionWithAnswer"
+                },
+                {
+                  "kind": "Content",
+                  "text": "[]"
+                },
+                {
+                  "kind": "Content",
+                  "text": "): "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Promise"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<void>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 7,
+                "endIndex": 9
+              },
+              "releaseTag": "Public",
+              "overloadIndex": 0,
+              "parameters": [
+                {
+                  "parameterName": "questionsWithAnswers",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 4,
+                    "endIndex": 6
+                  }
+                }
+              ],
+              "name": "enroll"
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "(getEnrolledQuestions:instance,0)",
+              "docComment": "/**\n * Reads enrolled Security Questions.\n *\n * @returns a promise to return a collection of enrolled Security Questions.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Reference",
+                  "text": "getEnrolledQuestions"
+                },
+                {
+                  "kind": "Content",
+                  "text": "(): "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Promise"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<"
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Question"
+                },
+                {
+                  "kind": "Content",
+                  "text": "[]>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 2,
+                "endIndex": 6
+              },
+              "releaseTag": "Public",
+              "overloadIndex": 0,
+              "parameters": [],
+              "name": "getEnrolledQuestions"
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "(unenroll:instance,0)",
+              "docComment": "/**\n * Deletes the Security Question enrollment.\n *\n * @returns a promise to delete the enrollment or reject in case of an error.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Reference",
+                  "text": "unenroll"
+                },
+                {
+                  "kind": "Content",
+                  "text": "(): "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Promise"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<void>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 2,
+                "endIndex": 4
+              },
+              "releaseTag": "Public",
+              "overloadIndex": 0,
+              "parameters": [],
+              "name": "unenroll"
+            }
+          ],
+          "extendsTokenRange": {
+            "startIndex": 3,
+            "endIndex": 5
+          },
+          "implementsTokenRanges": []
+        },
+        {
+          "kind": "Class",
+          "canonicalReference": "(SmartCardEnroll:class)",
+          "docComment": "/**\n * Smartcard enrollment API.\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare class "
+            },
+            {
+              "kind": "Reference",
+              "text": "SmartCardEnroll"
+            },
+            {
+              "kind": "Content",
+              "text": " extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "Enroller"
+            },
+            {
+              "kind": "Content",
+              "text": " "
+            }
+          ],
+          "releaseTag": "Public",
+          "name": "SmartCardEnroll",
+          "members": [
+            {
+              "kind": "Constructor",
+              "canonicalReference": "(:constructor,0)",
+              "docComment": "/**\n * Constructs a new smartcard enrollment API object.\n *\n * @param context - an {@link EnrollmentContext | enrollment context}.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "constructor("
+                },
+                {
+                  "kind": "Reference",
+                  "text": "context"
+                },
+                {
+                  "kind": "Content",
+                  "text": ": "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "EnrollmentContext"
+                },
+                {
+                  "kind": "Content",
+                  "text": ");"
+                }
+              ],
+              "releaseTag": "Public",
+              "overloadIndex": 0,
+              "parameters": [
+                {
+                  "parameterName": "context",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 3,
+                    "endIndex": 4
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "(canEnroll:instance,0)",
+              "docComment": "/**\n * Reads a card enrollment availability.\n *\n * @returns a fulfilled promise when a card can be enrolled, a rejected promise otherwise.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Reference",
+                  "text": "canEnroll"
+                },
+                {
+                  "kind": "Content",
+                  "text": "(): "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Promise"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<void>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 2,
+                "endIndex": 4
+              },
+              "releaseTag": "Public",
+              "overloadIndex": 0,
+              "parameters": [],
+              "name": "canEnroll"
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "(enroll:instance,0)",
+              "docComment": "/**\n * Enrolls a card.\n *\n * @param cardData - a card enrollment data obtained using {@link CardsReader.getCardEnrollData}.\n *\n * @returns a promise to perform the enrollment or reject in case of an error.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Reference",
+                  "text": "enroll"
+                },
+                {
+                  "kind": "Content",
+                  "text": "("
+                },
+                {
+                  "kind": "Reference",
+                  "text": "cardData"
+                },
+                {
+                  "kind": "Content",
+                  "text": ": "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": "): "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Promise"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<void>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 6,
+                "endIndex": 8
+              },
+              "releaseTag": "Public",
+              "overloadIndex": 0,
+              "parameters": [
+                {
+                  "parameterName": "cardData",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 4,
+                    "endIndex": 5
+                  }
+                }
+              ],
+              "name": "enroll"
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "(getEnrolledCards:instance,0)",
+              "docComment": "/**\n * Reads a list of enrolled cards.\n *\n * @returns a promise to return a list of user's enrolled cards.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Reference",
+                  "text": "getEnrolledCards"
+                },
+                {
+                  "kind": "Content",
+                  "text": "(): "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Promise"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<"
+                },
+                {
+                  "kind": "Reference",
+                  "text": "SmartCardEnrollmentData"
+                },
+                {
+                  "kind": "Content",
+                  "text": "[]>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 2,
+                "endIndex": 6
+              },
+              "releaseTag": "Public",
+              "overloadIndex": 0,
+              "parameters": [],
+              "name": "getEnrolledCards"
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "(unenroll:instance,0)",
+              "docComment": "/**\n * Deletes a specific smart card enrollment defined by its pubilc key hash.\n *\n * @param keyHash - a key hash of the card. If not provided, all smartcard enrollments will be deleted.\n *\n * @returns a promise to delete the enrollment or reject in case of an error.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Reference",
+                  "text": "unenroll"
+                },
+                {
+                  "kind": "Content",
+                  "text": "("
+                },
+                {
+                  "kind": "Reference",
+                  "text": "keyHash"
+                },
+                {
+                  "kind": "Content",
+                  "text": "?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": "): "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Promise"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<void>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 6,
+                "endIndex": 8
+              },
+              "releaseTag": "Public",
+              "overloadIndex": 0,
+              "parameters": [
+                {
+                  "parameterName": "keyHash",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 4,
+                    "endIndex": 5
+                  }
+                }
+              ],
+              "name": "unenroll"
+            }
+          ],
+          "extendsTokenRange": {
+            "startIndex": 3,
+            "endIndex": 5
+          },
+          "implementsTokenRanges": []
+        },
+        {
+          "kind": "Interface",
+          "canonicalReference": "(SmartCardEnrollmentData:interface)",
+          "docComment": "/**\n * Smartcard enrollment data.\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export interface "
+            },
+            {
+              "kind": "Reference",
+              "text": "SmartCardEnrollmentData"
+            },
+            {
+              "kind": "Content",
+              "text": " "
+            }
+          ],
+          "releaseTag": "Public",
+          "name": "SmartCardEnrollmentData",
+          "members": [
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "keyHash",
+              "docComment": "/**\n * A key hash of the card.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Reference",
+                  "text": "keyHash"
+                },
+                {
+                  "kind": "Content",
+                  "text": ": "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "releaseTag": "Public",
+              "name": "keyHash",
+              "propertyTypeTokenRange": {
+                "startIndex": 2,
+                "endIndex": 3
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "nickname",
+              "docComment": "/**\n * A nickname of the card.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Reference",
+                  "text": "nickname"
+                },
+                {
+                  "kind": "Content",
+                  "text": ": "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "releaseTag": "Public",
+              "name": "nickname",
+              "propertyTypeTokenRange": {
+                "startIndex": 2,
+                "endIndex": 3
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "timeStamp",
+              "docComment": "/**\n * An enrollment timestamp.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Reference",
+                  "text": "timeStamp"
+                },
+                {
+                  "kind": "Content",
+                  "text": ": "
+                },
+                {
+                  "kind": "Content",
+                  "text": "number"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "releaseTag": "Public",
+              "name": "timeStamp",
+              "propertyTypeTokenRange": {
+                "startIndex": 2,
+                "endIndex": 3
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "version",
+              "docComment": "/**\n * A version.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Reference",
+                  "text": "version"
+                },
+                {
+                  "kind": "Content",
+                  "text": ": "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "releaseTag": "Public",
+              "name": "version",
+              "propertyTypeTokenRange": {
+                "startIndex": 2,
+                "endIndex": 3
+              }
+            }
+          ],
+          "extendsTokenRanges": []
+        },
+        {
+          "kind": "Class",
+          "canonicalReference": "(TimeOtpEnroll:class)",
+          "docComment": "/**\n * One-time password enrollment API.\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare class "
+            },
+            {
+              "kind": "Reference",
+              "text": "TimeOtpEnroll"
+            },
+            {
+              "kind": "Content",
+              "text": " extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "Enroller"
+            },
+            {
+              "kind": "Content",
+              "text": " "
+            }
+          ],
+          "releaseTag": "Public",
+          "name": "TimeOtpEnroll",
+          "members": [
+            {
+              "kind": "Constructor",
+              "canonicalReference": "(:constructor,0)",
+              "docComment": "/**\n * Constructs a new One-Time Password enrollment API object.\n *\n * @param context - an {@link EnrollmentContext | enrollment context}.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "constructor("
+                },
+                {
+                  "kind": "Reference",
+                  "text": "context"
+                },
+                {
+                  "kind": "Content",
+                  "text": ": "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "EnrollmentContext"
+                },
+                {
+                  "kind": "Content",
+                  "text": ");"
+                }
+              ],
+              "releaseTag": "Public",
+              "overloadIndex": 0,
+              "parameters": [
+                {
+                  "parameterName": "context",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 3,
+                    "endIndex": 4
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "(createKeyUri:instance,0)",
+              "docComment": "/**\n * Converts a secret key to a Key URI, which will be encode as a QR Code image to scan.\n *\n * @remarks\n *\n * For Push Notifications fo AD users, make sure the user's token has an `ad_guid` claim. You may need to use `ClaimsService.GetClaims()` method to append this claim to an existing token.\n *\n * @param key - a secret key to convert to a Key URI string.\n *\n * @returns - a promise to return a Key URI string\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Reference",
+                  "text": "createKeyUri"
+                },
+                {
+                  "kind": "Content",
+                  "text": "("
+                },
+                {
+                  "kind": "Reference",
+                  "text": "key"
+                },
+                {
+                  "kind": "Content",
+                  "text": ": "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Uint8Array"
+                },
+                {
+                  "kind": "Content",
+                  "text": "): "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Promise"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<string>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 6,
+                "endIndex": 8
+              },
+              "releaseTag": "Public",
+              "overloadIndex": 0,
+              "parameters": [
+                {
+                  "parameterName": "key",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 4,
+                    "endIndex": 5
+                  }
+                }
+              ],
+              "name": "createKeyUri"
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "(enrollHardwareOtp:instance,0)",
+              "docComment": "/**\n * Enrolls a hardware TOTP token.\n *\n * @param code - a verification code entered by a user.\n *\n * @param serialNumber - a serial number of the TOTP token.\n *\n * @param counter - an optional counter displayed on some token models.\n *\n * @param timer - an optional timer displayed on some token models\n *\n * @returns a promise to perform the enrollment or reject in case of an error.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Reference",
+                  "text": "enrollHardwareOtp"
+                },
+                {
+                  "kind": "Content",
+                  "text": "("
+                },
+                {
+                  "kind": "Reference",
+                  "text": "code"
+                },
+                {
+                  "kind": "Content",
+                  "text": ": "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ", "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "serialNumber"
+                },
+                {
+                  "kind": "Content",
+                  "text": ": "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ", "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "counter"
+                },
+                {
+                  "kind": "Content",
+                  "text": "?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ", "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "timer"
+                },
+                {
+                  "kind": "Content",
+                  "text": "?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": "): "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Promise"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<void>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 18,
+                "endIndex": 20
+              },
+              "releaseTag": "Public",
+              "overloadIndex": 0,
+              "parameters": [
+                {
+                  "parameterName": "code",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 4,
+                    "endIndex": 5
+                  }
+                },
+                {
+                  "parameterName": "serialNumber",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 8,
+                    "endIndex": 9
+                  }
+                },
+                {
+                  "parameterName": "counter",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 12,
+                    "endIndex": 13
+                  }
+                },
+                {
+                  "parameterName": "timer",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 16,
+                    "endIndex": 17
+                  }
+                }
+              ],
+              "name": "enrollHardwareOtp"
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "(enrollSoftwareOtp:instance,0)",
+              "docComment": "/**\n * Enrolls One-Time Password using a software TOTP (e.g. DigitalPersona app, Google Authenticator etc.)\n *\n * @param code - a verification code entered by a user.\n *\n * @param key - a secret key used to \"seed\" an OTP generator.\n *\n * @param phoneNumber - a phone number the verification code was sent to\n *\n * @returns a promise to perform the enrollment or reject in case of an error.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Reference",
+                  "text": "enrollSoftwareOtp"
+                },
+                {
+                  "kind": "Content",
+                  "text": "("
+                },
+                {
+                  "kind": "Reference",
+                  "text": "code"
+                },
+                {
+                  "kind": "Content",
+                  "text": ": "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ", "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "key"
+                },
+                {
+                  "kind": "Content",
+                  "text": ": "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Uint8Array"
+                },
+                {
+                  "kind": "Content",
+                  "text": ", "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "phoneNumber"
+                },
+                {
+                  "kind": "Content",
+                  "text": "?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": "): "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Promise"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<void>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 14,
+                "endIndex": 16
+              },
+              "releaseTag": "Public",
+              "overloadIndex": 0,
+              "parameters": [
+                {
+                  "parameterName": "code",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 4,
+                    "endIndex": 5
+                  }
+                },
+                {
+                  "parameterName": "key",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 8,
+                    "endIndex": 9
+                  }
+                },
+                {
+                  "parameterName": "phoneNumber",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 12,
+                    "endIndex": 13
+                  }
+                }
+              ],
+              "name": "enrollSoftwareOtp"
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "(sendVerificationCode:instance,0)",
+              "docComment": "/**\n * Sends an verification code using SMS to the user's device.\n *\n * @param key - a secret key to \"seed\" an OTP generator and start generating verification codes.\n *\n * @param phoneNumber - a phone number to send a current verification code to.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Reference",
+                  "text": "sendVerificationCode"
+                },
+                {
+                  "kind": "Content",
+                  "text": "("
+                },
+                {
+                  "kind": "Reference",
+                  "text": "key"
+                },
+                {
+                  "kind": "Content",
+                  "text": ": "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Uint8Array"
+                },
+                {
+                  "kind": "Content",
+                  "text": ", "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "phoneNumber"
+                },
+                {
+                  "kind": "Content",
+                  "text": ": "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": "): "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Promise"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<void>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 10,
+                "endIndex": 12
+              },
+              "releaseTag": "Public",
+              "overloadIndex": 0,
+              "parameters": [
+                {
+                  "parameterName": "key",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 4,
+                    "endIndex": 5
+                  }
+                },
+                {
+                  "parameterName": "phoneNumber",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 8,
+                    "endIndex": 9
+                  }
+                }
+              ],
+              "name": "sendVerificationCode"
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "(unenroll:instance,0)",
+              "docComment": "/**\n * Deletes the OTP enrollment.\n *\n * @returns a promise to delete the enrollment or reject in case of an error.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Reference",
+                  "text": "unenroll"
+                },
+                {
+                  "kind": "Content",
+                  "text": "(): "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Promise"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<void>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 2,
+                "endIndex": 4
+              },
+              "releaseTag": "Public",
+              "overloadIndex": 0,
+              "parameters": [],
+              "name": "unenroll"
+            }
+          ],
+          "extendsTokenRange": {
+            "startIndex": 3,
+            "endIndex": 5
+          },
+          "implementsTokenRanges": []
+        },
+        {
+          "kind": "Class",
+          "canonicalReference": "(U2FEnroll:class)",
+          "docComment": "/**\n * Universal Second Factor (U2F) enrollment API.\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare class "
+            },
+            {
+              "kind": "Reference",
+              "text": "U2FEnroll"
+            },
+            {
+              "kind": "Content",
+              "text": " extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "Enroller"
+            },
+            {
+              "kind": "Content",
+              "text": " "
+            }
+          ],
+          "releaseTag": "Public",
+          "name": "U2FEnroll",
+          "members": [
+            {
+              "kind": "Constructor",
+              "canonicalReference": "(:constructor,0)",
+              "docComment": "/**\n * Constructs a new U2F enrollment API object.\n *\n * @param context - an {@link EnrollmentContext | enrollment context}.\n *\n * @param appId - an AppID of the service.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "constructor("
+                },
+                {
+                  "kind": "Reference",
+                  "text": "context"
+                },
+                {
+                  "kind": "Content",
+                  "text": ": "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "EnrollmentContext"
+                },
+                {
+                  "kind": "Content",
+                  "text": ", "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "appId"
+                },
+                {
+                  "kind": "Content",
+                  "text": ": "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ");"
+                }
+              ],
+              "releaseTag": "Public",
+              "overloadIndex": 0,
+              "parameters": [
+                {
+                  "parameterName": "context",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 3,
+                    "endIndex": 4
+                  }
+                },
+                {
+                  "parameterName": "appId",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 7,
+                    "endIndex": 8
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "(canEnroll:instance,0)",
+              "docComment": "/**\n * Reads a U2F enrollment availability.\n *\n * @returns a fulfilled promise when a U2F can be enrolled, a rejected promise otherwise.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Reference",
+                  "text": "canEnroll"
+                },
+                {
+                  "kind": "Content",
+                  "text": "(): "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Promise"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<void>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 2,
+                "endIndex": 4
+              },
+              "releaseTag": "Public",
+              "overloadIndex": 0,
+              "parameters": [],
+              "name": "canEnroll"
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "(enroll:instance,0)",
+              "docComment": "/**\n * Enrolls a U2F token.\n *\n * @returns a promise to perform the enrollment or reject in case of an error.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Reference",
+                  "text": "enroll"
+                },
+                {
+                  "kind": "Content",
+                  "text": "(): "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Promise"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<void>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 2,
+                "endIndex": 4
+              },
+              "releaseTag": "Public",
+              "overloadIndex": 0,
+              "parameters": [],
+              "name": "enroll"
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "(unenroll:instance,0)",
+              "docComment": "/**\n * Deletes the U2F enrollment.\n *\n * @returns a promise to delete the enrollment or reject in case of an error.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Reference",
+                  "text": "unenroll"
+                },
+                {
+                  "kind": "Content",
+                  "text": "(): "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Promise"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<void>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 2,
+                "endIndex": 4
+              },
+              "releaseTag": "Public",
+              "overloadIndex": 0,
+              "parameters": [],
+              "name": "unenroll"
+            }
+          ],
+          "extendsTokenRange": {
+            "startIndex": 3,
+            "endIndex": 5
+          },
+          "implementsTokenRanges": []
+        }
+      ]
+    }
+  ]
+}
