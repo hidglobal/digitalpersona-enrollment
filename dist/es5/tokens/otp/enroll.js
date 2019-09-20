@@ -1,4 +1,4 @@
-import * as tslib_1 from "tslib";
+import { __extends } from "tslib";
 import { User, Credential, JWT, Url, Base32, Ticket, Base64Url } from "@digitalpersona/core";
 import { Enroller } from "../../private";
 import { CustomAction } from "./actions";
@@ -6,7 +6,7 @@ import { CustomAction } from "./actions";
  * One-time password enrollment API.
  */
 var TimeOtpEnroll = /** @class */ (function (_super) {
-    tslib_1.__extends(TimeOtpEnroll, _super);
+    __extends(TimeOtpEnroll, _super);
     /** Constructs a new One-Time Password enrollment API object.
      * @param context - an {@link EnrollmentContext|enrollment context}.
      */
@@ -38,7 +38,7 @@ var TimeOtpEnroll = /** @class */ (function (_super) {
             .then(function (data) {
             var otpData = JSON.parse(data);
             if (!otpData)
-                return Promise.reject("NoEnrollmentData");
+                return Promise.reject(new Error("NoEnrollmentData"));
             var pushSupported = uid && otpData.pn_tenant_id;
             var uri = new Url("otpauth://" + type, issuer + ":" + username, {
                 secret: secret,

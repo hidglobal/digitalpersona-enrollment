@@ -300,8 +300,12 @@
                   "text": "?: "
                 },
                 {
+                  "kind": "Reference",
+                  "text": "JSONWebToken"
+                },
+                {
                   "kind": "Content",
-                  "text": "string | undefined"
+                  "text": " | undefined"
                 },
                 {
                   "kind": "Content",
@@ -329,7 +333,7 @@
                   "parameterName": "securityOfficer",
                   "parameterTypeTokenRange": {
                     "startIndex": 13,
-                    "endIndex": 14
+                    "endIndex": 15
                   }
                 }
               ]
@@ -478,8 +482,12 @@
                   "text": "?: "
                 },
                 {
+                  "kind": "Reference",
+                  "text": "JSONWebToken"
+                },
+                {
                   "kind": "Content",
-                  "text": "string | undefined"
+                  "text": " | undefined"
                 },
                 {
                   "kind": "Content",
@@ -490,7 +498,7 @@
               "name": "securityOfficer",
               "propertyTypeTokenRange": {
                 "startIndex": 2,
-                "endIndex": 3
+                "endIndex": 4
               },
               "isStatic": false
             },

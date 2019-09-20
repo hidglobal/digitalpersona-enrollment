@@ -23,7 +23,7 @@ export declare class EnrollmentContext
 |  Property | Modifiers | Type | Description |
 |  --- | --- | --- | --- |
 |  [enrollService](./enrollment.enrollmentcontext.enrollservice.md) |  | <code>IEnrollService</code> | DigitalPersona Enrollment web service client |
-|  [securityOfficer](./enrollment.enrollmentcontext.securityofficer.md) |  | <code>string &#124; undefined</code> | An optional JSON Web Token of a security officer performing an attended enrollment. If not provided, the API should try to use a user's own token instead for a self-enrollment. In this case the user must be allowed to do self-enrollment. |
+|  [securityOfficer](./enrollment.enrollmentcontext.securityofficer.md) |  | <code>JSONWebToken &#124; undefined</code> | An optional JSON Web Token of a security officer performing an attended enrollment. If not provided, the API should try to use a user's own token instead for a self-enrollment. In this case the user must be allowed to do self-enrollment. |
 |  [user](./enrollment.enrollmentcontext.user.md) |  | <code>JSONWebToken &#124; User</code> | A JSON Web Token or a username of a user whose credentials are to be enrolled. |
 
 ## Methods

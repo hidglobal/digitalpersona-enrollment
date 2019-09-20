@@ -1,4 +1,4 @@
-import * as tslib_1 from "tslib";
+import { __extends } from "tslib";
 import { Credential, Ticket } from '@digitalpersona/core';
 import { CustomAction } from './actions';
 import { Enroller } from '../../private';
@@ -8,7 +8,7 @@ import { Enroller } from '../../private';
  * As a primary credential, user's password cannot be unenroled, it can only be changed, reset or randomized.
  */
 var PasswordEnroll = /** @class */ (function (_super) {
-    tslib_1.__extends(PasswordEnroll, _super);
+    __extends(PasswordEnroll, _super);
     /** Constructs a new password enrollment API object.
      * @param context - an {@link EnrollmentContext|enrollment context}.
      */

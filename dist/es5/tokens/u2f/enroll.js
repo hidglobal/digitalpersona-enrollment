@@ -1,4 +1,4 @@
-import * as tslib_1 from "tslib";
+import { __assign, __extends } from "tslib";
 import * as u2fApi from 'u2f-api';
 import { Credential, Base64Url } from '@digitalpersona/core';
 import { Enroller } from '../../private';
@@ -6,7 +6,7 @@ import { Enroller } from '../../private';
  * Universal Second Factor (U2F) enrollment API.
  */
 var U2FEnroll = /** @class */ (function (_super) {
-    tslib_1.__extends(U2FEnroll, _super);
+    __extends(U2FEnroll, _super);
     /** Constructs a new U2F enrollment API object.
      * @param context - an {@link EnrollmentContext|enrollment context}.
      * @param appId - an AppID of the service.
@@ -38,7 +38,7 @@ var U2FEnroll = /** @class */ (function (_super) {
         return u2fApi
             .register(registerRequests, [], U2FEnroll.TIMEOUT)
             .then(function (response) {
-            return _super.prototype._enroll.call(_this, new Credential(Credential.U2F, tslib_1.__assign({ version: version, appId: appId }, response)));
+            return _super.prototype._enroll.call(_this, new Credential(Credential.U2F, __assign({ version: version, appId: appId }, response)));
         });
     };
     /** Deletes the U2F enrollment.

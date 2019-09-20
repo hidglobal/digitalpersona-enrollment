@@ -1,11 +1,11 @@
-import * as tslib_1 from "tslib";
+import { __extends } from "tslib";
 import { Credential, Utf8 } from '@digitalpersona/core';
 import { Enroller } from '../../private';
 /**
  * Smartcard enrollment API.
  */
 var SmartCardEnroll = /** @class */ (function (_super) {
-    tslib_1.__extends(SmartCardEnroll, _super);
+    __extends(SmartCardEnroll, _super);
     /** Constructs a new smartcard enrollment API object.
      * @param context - an {@link EnrollmentContext|enrollment context}.
      */
@@ -50,7 +50,7 @@ export { SmartCardEnroll };
  * Contactless card enrollment API.
  */
 var ContactlessCardEnroll = /** @class */ (function (_super) {
-    tslib_1.__extends(ContactlessCardEnroll, _super);
+    __extends(ContactlessCardEnroll, _super);
     /** Constructs a new contactless card enrollment API object.
      * @param context - an {@link EnrollmentContext|enrollment context}.
      */
@@ -83,7 +83,7 @@ export { ContactlessCardEnroll };
  * Proximity card enrollment API.
  */
 var ProximityCardEnroll = /** @class */ (function (_super) {
-    tslib_1.__extends(ProximityCardEnroll, _super);
+    __extends(ProximityCardEnroll, _super);
     /** Constructs a new proximity card enrollment API object.
      * @param context - an {@link EnrollmentContext|enrollment context}.
      */

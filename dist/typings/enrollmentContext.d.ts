@@ -18,7 +18,7 @@ export declare class EnrollmentContext {
      * If not provided, the API should try to use a user's own token instead for a self-enrollment.
      * In this case the user must be allowed to do self-enrollment.
      */
-    securityOfficer?: string | undefined;
+    securityOfficer?: JSONWebToken | undefined;
     constructor(
     /** DigitalPersona Enrollment web service client */
     enrollService: IEnrollService, 
@@ -32,7 +32,7 @@ export declare class EnrollmentContext {
      * If not provided, the API should try to use a user's own token instead for a self-enrollment.
      * In this case the user must be allowed to do self-enrollment.
      */
-    securityOfficer?: string | undefined);
+    securityOfficer?: JSONWebToken | undefined);
     /**
      * Check is the user has an authentication token, or just a user name.
      * @returns `true` if user identity represented by an authenticatication token, `false` otherwise.

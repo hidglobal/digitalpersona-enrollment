@@ -372,7 +372,7 @@
                 .then(function (data) {
                 var otpData = JSON.parse(data);
                 if (!otpData)
-                    return Promise.reject("NoEnrollmentData");
+                    return Promise.reject(new Error("NoEnrollmentData"));
                 var pushSupported = uid && otpData.pn_tenant_id;
                 var uri = new core.Url("otpauth://" + type, issuer + ":" + username, {
                     secret: secret,

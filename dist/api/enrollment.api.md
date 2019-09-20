@@ -31,12 +31,12 @@ export class EnrollmentContext {
     constructor(
     enrollService: IEnrollService, 
     user: JSONWebToken | User, 
-    securityOfficer?: string | undefined);
+    securityOfficer?: JSONWebToken | undefined);
     readonly enrollService: IEnrollService;
     getJWT(): JSONWebToken;
     getUser(): User;
     isAuthenticated(): boolean;
-    securityOfficer?: string | undefined;
+    securityOfficer?: JSONWebToken | undefined;
     user: JSONWebToken | User;
 }
 

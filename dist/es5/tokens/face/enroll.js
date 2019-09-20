@@ -1,11 +1,11 @@
-import * as tslib_1 from "tslib";
+import { __extends } from "tslib";
 import { Credential } from '@digitalpersona/core';
 import { Enroller } from '../../private';
 /**
  * Face enrollment API.
  */
 var FaceEnroll = /** @class */ (function (_super) {
-    tslib_1.__extends(FaceEnroll, _super);
+    __extends(FaceEnroll, _super);
     /** Constructs a new face enrollment API object.
      * @param context - an {@link EnrollmentContext|enrollment context}.
      */

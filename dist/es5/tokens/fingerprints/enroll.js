@@ -1,11 +1,11 @@
-import * as tslib_1 from "tslib";
+import { __extends } from "tslib";
 import { Credential, Utf8, Finger } from '@digitalpersona/core';
 import { Enroller } from '../../private';
 /**
  * Fingerprint enrollment API.
  */
 var FingerprintsEnroll = /** @class */ (function (_super) {
-    tslib_1.__extends(FingerprintsEnroll, _super);
+    __extends(FingerprintsEnroll, _super);
     /** Constructs a new fingerprint enrollment API object.
      * @param context - an {@link EnrollmentContext|enrollment context}.
      */

@@ -315,7 +315,7 @@
                 .then(data => {
                 const otpData = JSON.parse(data);
                 if (!otpData)
-                    return Promise.reject("NoEnrollmentData");
+                    return Promise.reject(new Error("NoEnrollmentData"));
                 const pushSupported = uid && otpData.pn_tenant_id;
                 const uri = new core.Url(`otpauth://${type}`, `${issuer}:${username}`, {
                     secret,

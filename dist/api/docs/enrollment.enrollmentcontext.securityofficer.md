@@ -9,5 +9,5 @@ An optional JSON Web Token of a security officer performing an attended enrollme
 <b>Signature:</b>
 
 ```typescript
-securityOfficer?: string | undefined;
+securityOfficer?: JSONWebToken | undefined;
 ```

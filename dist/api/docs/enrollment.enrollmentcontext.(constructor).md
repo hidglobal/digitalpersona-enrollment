@@ -12,7 +12,7 @@ Constructs a new instance of the `EnrollmentContext` class
 constructor(
     enrollService: IEnrollService, 
     user: JSONWebToken | User, 
-    securityOfficer?: string | undefined);
+    securityOfficer?: JSONWebToken | undefined);
 ```
 
 ## Parameters
@@ -21,5 +21,5 @@ constructor(
 |  --- | --- | --- |
 |  enrollService | <code>IEnrollService</code> |  |
 |  user | <code>JSONWebToken &#124; User</code> |  |
-|  securityOfficer | <code>string &#124; undefined</code> |  |
+|  securityOfficer | <code>JSONWebToken &#124; undefined</code> |  |
 

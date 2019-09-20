@@ -1,11 +1,11 @@
-import * as tslib_1 from "tslib";
+import { __extends } from "tslib";
 import { Credential, Question, Utf8 } from '@digitalpersona/core';
 import { Enroller } from '../../private';
 /**
  * Security Questions enrollment API.
  */
 var SecurityQuestionsEnroll = /** @class */ (function (_super) {
-    tslib_1.__extends(SecurityQuestionsEnroll, _super);
+    __extends(SecurityQuestionsEnroll, _super);
     /** Constructs a new Security Questions enrollment API object.
      * @param context - an {@link EnrollmentContext|enrollment context}.
      */
