@@ -39,7 +39,7 @@ export class TimeOtpEnroll extends Enroller
             .GetEnrollmentData(User.Anonymous(), Credential.OneTimePassword)
             .then(data => {
                 const otpData: OTPEnrollmentData = JSON.parse(data);
-                if (!otpData) return Promise.reject("NoEnrollmentData");
+                if (!otpData) return Promise.reject(new Error("NoEnrollmentData"));
                 const pushSupported = uid && otpData.pn_tenant_id;
                 const uri = new Url(`otpauth://${type}`, `${issuer}:${username}`, {
                     secret,
